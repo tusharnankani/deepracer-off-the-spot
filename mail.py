@@ -4,6 +4,9 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 import os
+import shutil
+from datetime import datetime
+
 
 def send_email_with_attachment(sender_email, sender_password, receiver_email, subject, body, attachment_path):
     # Create a multipart message
@@ -47,9 +50,18 @@ def send_email_with_attachment(sender_email, sender_password, receiver_email, su
 # Example usage
 sender_email = 'jhanvipandya325@gmail.com'
 sender_password = 'hklx fvpj amrw pokp'
-receiver_email = 'jhanvipandya325@gmail.com'
-subject = 'Subject: File with flagged reward functions'
-body = 'Please find the attached file.'
-attachment_path = 'file.txt'
+receiver_email = 'tusharnankani3@gmail.com'
+subject = f'Reports attached {datetime.now().strftime("%H:%M:%S")}'
+body = 'Please find the attached zipped file.'
+attachment_path = 'output.zip'
+
+# Example usage
+folder_to_zip = 'output'
+output_zip = 'output' 
+
+
+shutil.make_archive(output_zip, 'zip', folder_to_zip)
+print(f'Folder {folder_to_zip} zipped to {output_zip}.zip')
+
 
 send_email_with_attachment(sender_email, sender_password, receiver_email, subject, body, attachment_path)

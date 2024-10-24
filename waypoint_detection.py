@@ -69,3 +69,5 @@ df = pd.DataFrame(responses)
 
 csv_file_path = 'output/waypoint_responses.csv'
 df.to_csv(csv_file_path, index=False)
+
+print(f"Waypoint Detection results saved to {csv_file_path}")

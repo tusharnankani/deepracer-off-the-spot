@@ -1,4 +1,8 @@
 import boto3
+import json
+
+with open('config.json') as config_file:
+    config = json.load(config_file)
 
 s3_client = boto3.client('s3')
 
