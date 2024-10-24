@@ -38,8 +38,18 @@ deepracer_buckets = list_deepracer_buckets()
 # Dictionary to store all reward_function.py files for each bucket
 bucket_files = {}
 
+global_details = {}
+
 # Fetch reward_function.py files for each bucket
 for bucket in deepracer_buckets:
     bucket_files[bucket] = find_reward_function_files(bucket)
 
-print(bucket_files)
+    record = {
+        'bucket_name': bucket,
+        'file_name': bucket_files[bucket]
+    }
+
+    global_details.append(record)
+
+print(global_details)
+
