@@ -1,5 +1,9 @@
 import re
 import os
+import pandas as pd
+
+responses = []
+
 
 def remove_comments_from_code(code):
     # Remove single-line comments (lines starting with #)
@@ -46,6 +50,12 @@ def check_files_in_folder(folder_path):
                     if is_hardcoded:
                         print("Hardcoded waypoints detected in " + file_name)
                         # print(matches)
+                        response_dict = {
+                            'file_name': file_name,
+                            'file_content': file_content,
+                            'potential_waypoint_content': matches 
+                        }
+                        responses.append(response_dict)
                     else:
                         print("No hardcoded waypoints detected.")
 
@@ -54,3 +64,8 @@ def check_files_in_folder(folder_path):
 
 
 check_files_in_folder('./test')
+
+df = pd.DataFrame(responses)
+
+csv_file_path = 'output/waypoint_responses.csv'
+df.to_csv(csv_file_path, index=False)
