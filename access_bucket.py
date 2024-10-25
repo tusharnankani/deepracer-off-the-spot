@@ -73,7 +73,6 @@ def detect_hardcoded_waypoints(reward_function_code, waypoint_threshold=5):
 
 
 deepracer_buckets = list_deepracer_buckets()
-print(deepracer_buckets)
 
 # Dictionary to store all reward_function.py files for each bucket
 bucket_files = {}
@@ -82,10 +81,8 @@ bucket_files = {}
 # Fetch reward_function.py files for each bucket
 for bucket in deepracer_buckets:
     bucket_files[bucket] = find_reward_function_files(bucket)
-    print(bucket_files)
 
 for bucket in deepracer_buckets:
-    print(bucket)
     for file_key in bucket_files[bucket]:
         file_content = read_file_from_s3(bucket, file_key)
 
