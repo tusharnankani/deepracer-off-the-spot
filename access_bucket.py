@@ -84,37 +84,37 @@ for bucket in deepracer_buckets:
     bucket_files[bucket] = find_reward_function_files(bucket)
     print(bucket_files)
 
-    for bucket in deepracer_buckets:
-        print(bucket)
-        for file_key in bucket_files[bucket]:
-            file_content = read_file_from_s3(bucket, file_key)
+for bucket in deepracer_buckets:
+    print(bucket)
+    for file_key in bucket_files[bucket]:
+        file_content = read_file_from_s3(bucket, file_key)
 
-            # If either is not found, skip comparison
-            if not file_content:
-                continue
+        # If either is not found, skip comparison
+        if not file_content:
+            continue
 
-            is_hardcoded, matches = detect_hardcoded_waypoints(remove_comments_from_code(file_content), 10)
-                    
-            if is_hardcoded:
-                response_dict = {
-                    'bucket': bucket,
-                    'file_key': file_key,
-                    'file_content': file_content,
-                    'flagged': 'Y',
-                    'match_count': len(matches),
-                    'potential_waypoint_content': matches
-                }
-            else:
-                response_dict = {
-                    'bucket': bucket,
-                    'file_key': file_key,
-                    'file_content': file_content,
-                    'flagged': 'N',
-                    'match_count': None,
-                    'potential_waypoint_content': None
-                }
+        is_hardcoded, matches = detect_hardcoded_waypoints(remove_comments_from_code(file_content), 10)
+                
+        if is_hardcoded:
+            response_dict = {
+                'bucket': bucket,
+                'file_key': file_key,
+                'file_content': file_content,
+                'flagged': 'Y',
+                'match_count': len(matches),
+                'potential_waypoint_content': matches
+            }
+        else:
+            response_dict = {
+                'bucket': bucket,
+                'file_key': file_key,
+                'file_content': file_content,
+                'flagged': 'N',
+                'match_count': None,
+                'potential_waypoint_content': None
+            }
 
-            responses.append(response_dict)
+        responses.append(response_dict)
 
 
 
