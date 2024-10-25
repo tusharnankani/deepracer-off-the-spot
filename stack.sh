@@ -8,7 +8,7 @@ fi
 
 stack_prefix=$1
 
-log_file="script_output.txt"
+log_file="output/script_output.txt"
 
 # Example function that logs with timestamp
 log_with_timestamp() {
