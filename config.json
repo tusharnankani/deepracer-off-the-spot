@@ -2,20 +2,14 @@
     "bucket_name_starts_with": "aws-deepracer-assets",
     "key_name_includes": "MUDR",
     "reward_function": "reward_function.py",
-    "threshold": {
-        "waypoint": 10,
-        "plagiarism": 60
-    },
-    "file": {
-      "waypoint_responses_path": "./output/waypoint_responses.csv",
-      "plagiarism_response_path": "./output/plagiarism_responses.csv"
-    },
-    "email": {
-      "smtp_server": "smtp.gmail.com",
-      "smtp_port": 587,
-      "from_address": "jhanvipandya325@gmail.com",
-      "to_address": "tusharnankani3@gmail.com",
-      "login": "jhanvipandya325@gmail.com",
-      "password": "hklx fvpj amrw pokp"
-    }
+    "waypoint_threshold": 10,
+    "plagiarism_threshold": 60,
+    "waypoint_responses_path": "./output/waypoint_responses.csv",
+    "plagiarism_response_path": "./output/plagiarism_responses.csv",
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "from_address": "jhanvipandya325@gmail.com",
+    "to_address": "tusharnankani3@gmail.com",
+    "login": "jhanvipandya325@gmail.com",
+    "password": "hklx fvpj amrw pokp"
 }  

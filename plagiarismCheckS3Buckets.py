@@ -114,7 +114,7 @@ def compare_reward_functions():
 
     # Convert results to a DataFrame and save to CSV
     df = pd.DataFrame(plagiarism_results)
-    csv_file_path = 'plagiarism_detection_results.csv'
+    csv_file_path = 'output/plagiarism_detection_results.csv'
     df.to_csv(csv_file_path, index=False)
     print(f"Plagiarism detection results saved to {csv_file_path}")
 
