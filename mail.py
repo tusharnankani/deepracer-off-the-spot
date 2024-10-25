@@ -51,7 +51,7 @@ def send_email_with_attachment(sender_email, sender_password, receiver_email, su
 sender_email = 'jhanvipandya325@gmail.com'
 sender_password = 'hklx fvpj amrw pokp'
 receiver_email = 'tusharnankani3@gmail.com'
-subject = f'Reports attached {datetime.now().strftime("%H:%M:%S")}'
+subject = f'DeepRacer Clean Up Reports Attached - {datetime.now().strftime("%H:%M:%S")}'
 body = 'Please find the attached zipped file.'
 attachment_path = 'output.zip'
 
